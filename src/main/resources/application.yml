@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: profile
+  profiles:
+    active: local
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    encoding: UTF-8
+    cache: false
+  mvc:
+    static-path-pattern: /static/**
+    log-resolved-exception: true
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://----:3306/profile
+    username: ----
+    password: ----
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  error:
+    include-exception: true
+    include-stacktrace: ALWAYS
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  exception-conversion-word: "%wEx"
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(${LOG_LEVEL_PATTERN:-%5p}){green} %clr([%22thread]){magenta} %clr(%-40.40logger{39}){cyan} %clr(: %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}){faint}"
+  level:
+    web: debug
