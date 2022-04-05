@@ -12,11 +12,15 @@ import ml.samuel.profile.controllers.constants.RootConstants;
 @RequestMapping(RootConstants.ROOT_URL)
 @Controller
 public class RootController {
-    
 
     @GetMapping(RootConstants.INDEX_URL)
     public String index(Model model) {
         return RootConstants.INDEX_HTML;
     }
-    
+
+    @GetMapping(RootConstants.LAYOUT_TEST_URL)
+    public String layoutTest(Model model) {
+        return RootConstants.LAYOUT_TEST_HTML;
+    }
+
 }
